@@ -30,7 +30,7 @@ $(document).ready(function() {
            $("#results").html("<div class=\"panel-heading\">Error:</div><div class=\"panel-body\"><p>" + solution.message + "</p></div>");
            $("#results").addClass("panel panel-danger");
        } else {
-           table = "<table><tr><td>Coin Type</td><td>No. Coins</td></tr>";
+           table = "<table><tr><td><strong>Coin Type</strong></td><td><strong>No. Coins</strong></td></tr>";
            for (var i = 0; i < solution.length; i++) {
                table = table + "<tr><td>" + solution[i].cointype + "</td><td>" + solution[i].numcoins + "</td></tr>";
            }

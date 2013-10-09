@@ -3,6 +3,18 @@
         padding-top: 60px;
     }
     
+    table {
+        width:350px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    h1 {
+        text-align:center;
+    }
+
     .jumbotron {
         width: 600px;
         margin-left: auto;
