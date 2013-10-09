@@ -41,7 +41,20 @@ describe("Validator", function() {
      expect(validator.validate_convertfloat("1.28454382568947534285702345")).toEqual(128);
      expect(validator.validate_convertfloat("1.28654382568947534285702345")).toEqual(129);
      expect(validator.validate_convertfloat("1.")).toEqual(100);
-     expect(validator.validate_convertfloat("1.1")).toEqual(110); 
+     expect(validator.validate_convertfloat("1.1")).toEqual(110);
+     expect(validator.validate_convertfloat("001.41p")).toEqual(141);
+  });
+  
+  it("should be able to validate all inputs and either report Error or return pence ready for solution", function() {
+     expect(validator.validate_topence).toBeDefined(); 
+     expect(validator.validate_topence("£1.23p")).toEqual(123);
+     expect(validator.validate_topence("349")).toEqual(349);
+     expect(validator.validate_topence("£349.23")).toEqual(34923);
+     expect(validator.validate_topence("£21.")).toEqual(2100);
+     expect(validator.validate_topence("£1x.23p")).toEqual("Your Input is Invalid You must only use numeric characters - input may begin with \"£\" and / or end with \"p\" e.g. 327 or 3.27 or £3.27 or 3.27p or £3.27p");
+     expect(validator.validate_topence(" ")).toEqual("Your Input is Invalid You must only use numeric characters - input may begin with \"£\" and / or end with \"p\" e.g. 327 or 3.27 or £3.27 or 3.27p or £3.27p");
+     expect(validator.validate_topence("£p")).toEqual("Your Input is Invalid You must only use numeric characters - input may begin with \"£\" and / or end with \"p\" e.g. 327 or 3.27 or £3.27 or 3.27p or £3.27p");
+     expect(validator.validate_topence("1x")).toEqual("Your Input is Invalid You must only use numeric characters - input may begin with \"£\" and / or end with \"p\" e.g. 327 or 3.27 or £3.27 or 3.27p or £3.27p");
   });
   
 });

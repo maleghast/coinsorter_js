@@ -37,3 +37,16 @@ Validator.prototype.validate_convertfloat = function(input) {
     }
     return Math.round(output);
 }
+
+Validator.prototype.validate_topence = function(input) {
+    input_stripped_allowed_symbols = this.validate_allowedsymbols(input, this.allowedsymbols);
+    try {
+        if (this.validate_numeric(input_stripped_allowed_symbols)) {
+            return this.validate_convertfloat(input_stripped_allowed_symbols);
+        } else {
+            throw new Error("Your Input is Invalid You must only use numeric characters - input may begin with \"£\" and / or end with \"p\" e.g. 327 or 3.27 or £3.27 or 3.27p or £3.27p");
+        }
+    } catch (e) {
+        return e.message;
+    }
+}
