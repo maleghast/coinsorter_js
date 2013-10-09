@@ -18,4 +18,9 @@ describe("CoinSorter", function() {
     expect(coinsorter.dividescleanby(212,100)).toEqual({"dividesclean":false,"coin":100,"quotient":2,"remainder":12})
   });
   
+  it("should have a function for creating coin sort solution", function() {
+     expect(coinsorter.solve).toBeDefined();
+     expect(coinsorter.solve(100)).toEqual({"£2":0,"£1":1,"50p":0,"20p":0,"10p":0,"5p":0,"2p":0,"1p":0});
+  });
+  
 });
