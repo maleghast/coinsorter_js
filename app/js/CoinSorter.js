@@ -25,5 +25,25 @@ CoinSorter.prototype.dividescleanby = function(amount, divisor) {
 };
 
 CoinSorter.prototype.solve = function(amount) {
-    x = 1;
-}
+    cycles = this.coinlist.length;
+    solution = [];
+    for (var i = 0; i < cycles; i++) {
+        result = this.dividescleanby(amount, this.coinlist[i]);
+        if (result.dividesclean) {
+            coin = this.coinmap[this.coinlist[i]];
+            num = result.quotient;
+            solution.push({cointype:coin,numcoins:num});
+            for (var j = i+1; j < cycles; j++) {
+                coin = this.coinmap[this.coinlist[j]];
+                solution.push({cointype:coin,numcoins:0});
+            }
+            break;
+        } else {
+            coin = this.coinmap[this.coinlist[i]];
+            num = result.quotient;
+            solution.push({cointype:coin,numcoins:num});
+            amount = result.remainder;
+        }
+    }
+    return solution;
+};
