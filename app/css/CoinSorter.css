@@ -1,0 +1,11 @@
+@media (min-width: 979px) {
+    body {
+        padding-top: 60px;
+    }
+    
+    .jumbotron {
+        width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
