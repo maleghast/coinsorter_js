@@ -23,3 +23,7 @@ CoinSorter.prototype.dividescleanby = function(amount, divisor) {
         return {"dividesclean":false,"coin":divisor,"quotient":Math.floor(amount/divisor),"remainder":remainder};
     }
 };
+
+CoinSorter.prototype.solve = function(amount) {
+    x = 1;
+}
