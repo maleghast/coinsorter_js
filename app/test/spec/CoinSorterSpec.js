@@ -51,16 +51,26 @@ describe("CoinSorter", function() {
                                             {cointype:"2p",numcoins:1},
                                             {cointype:"1p",numcoins:0},
                                             ]);
-    expect(coinsorter.solve(4)).toEqual([
+    expect(coinsorter.solve(14)).toEqual([
+                                            {cointype:"£2",numcoins:0},
+                                            {cointype:"£1",numcoins:0},
+                                            {cointype:"50p",numcoins:0},
+                                            {cointype:"20p",numcoins:0},
+                                            {cointype:"10p",numcoins:1},
+                                            {cointype:"5p",numcoins:0},
+                                            {cointype:"2p",numcoins:2},
+                                            {cointype:"1p",numcoins:0},
+                                            ]);
+    expect(coinsorter.solve(3)).toEqual([
                                             {cointype:"£2",numcoins:0},
                                             {cointype:"£1",numcoins:0},
                                             {cointype:"50p",numcoins:0},
                                             {cointype:"20p",numcoins:0},
                                             {cointype:"10p",numcoins:0},
                                             {cointype:"5p",numcoins:0},
-                                            {cointype:"2p",numcoins:2},
-                                            {cointype:"1p",numcoins:0},
-                                            ]);                                        
+                                            {cointype:"2p",numcoins:1},
+                                            {cointype:"1p",numcoins:1},
+                                            ]);                                       
   });
   
 });
