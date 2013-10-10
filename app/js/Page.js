@@ -27,15 +27,16 @@ $(document).ready(function() {
        input = $("#amount").val();
        solution = Solve(input);
        if (solution.error) {
-           $("#results").html("<div class=\"panel-heading\">Error:</div><div class=\"panel-body\"><p>" + solution.message + "</p></div>");
+           var tmpl_string = $("#error").html();
+           var template = Handlebars.compile(tmpl_string);
+           rendered_html = template(solution);
+           $("#results").html(rendered_html);
            $("#results").addClass("panel panel-danger");
        } else {
-           table = "<table><tr><td><strong>Coin Type</strong></td><td><strong>No. Coins</strong></td></tr>";
-           for (var i = 0; i < solution.length; i++) {
-               table = table + "<tr><td>" + solution[i].cointype + "</td><td>" + solution[i].numcoins + "</td></tr>";
-           }
-           table = table + "</table>";
-           $("#results").html("<div class=\"panel-heading\">Solution:</div><div class=\"panel-body\">" + table + "</div>");
+           var tmpl_string = $("#solutiontable").html();
+           var template = Handlebars.compile(tmpl_string);
+           rendered_html = template(solution);
+           $("#results").html(rendered_html);
            $("#results").addClass("panel panel-success");
        }
        $("#results").removeClass("hidden");

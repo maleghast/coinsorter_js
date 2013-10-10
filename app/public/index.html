@@ -21,12 +21,39 @@
     </div>
   </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="http://code.jquery.com/jquery.js"></script>
+<script src="../../lib/js/jquery.js"></script>
+<!-- Include Handlebars for templating -->
+<script src="../../lib/js/handlebars.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="../../lib/js/bootstrap.min.js"></script>
+<!-- My Handlebars Templates -->
+<script id="solutiontable" type="text/x-handlebars-template">
+<div class='panel-heading'>Solution:</div>
+<div class='panel-body'>
+  <table>
+    <tr>
+      <td><strong>Coin Type</strong></td>
+      <td><strong>No. Coins</strong></td>
+    </tr>
+    {{#each this}}
+      <tr>
+        <td>{{cointype}}</td>
+        <td>{{numcoins}}</td>
+      </tr>
+    {{/each}}
+  </table>
+</div>
+</script>
+<script id="error" type="text/x-handlebars-template">
+<div class='panel-heading'>Error:</div>
+<div class='panel-body'>
+  <p>{{message}}</p>
+</div>
+</script
 <!-- My JS libs-->
 <script src="../js/Validator.js"></script>
 <script src="../js/CoinSorter.js"></script>
+<script src="../js/Templater.js"></script>
 <script src="../js/Page.js"></script>
 </body>
 </html>
