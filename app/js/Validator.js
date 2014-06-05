@@ -29,9 +29,13 @@ Validator.prototype.validate_allowedsymbols = function(input, allowedsymbols) {
 
 Validator.prototype.validate_convertfloat = function(input) {
     String(input);
-    reg = /^[\d]*\.$/;
-    if ((input % 1 === 0) && (reg.test(input) === false)) {
-        output = parseInt(input, 10);
+    reg = /^[\d]*\.[0]{0,2}$/;
+    if (input % 1 === 0) {
+	    if (reg.test(input) !== true) {
+		output = parseInt(input, 10);
+	    } else {
+		output = parseFloat(input).toFixed(2) * 100;
+            }
     } else {
         output = parseFloat(input).toFixed(2) * 100;
     }
